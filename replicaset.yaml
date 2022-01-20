@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: meureplicaset
+spec:
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata: 
+      labels:
+        app: web
+    spec: 
+      containers:
+        - name: web
+          image: glasscode/conversao-temperatura:v1
+          ports:
+            - containerPort: 8080
+    
